@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gov.web.mapper.AeDevListMapper">
+
+    <resultMap id="BaseResultMap" type="com.gov.web.domain.AeDevList">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="deviceId" column="device_Id" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,device_Id,remark
+    </sql>
+
+    <update id="createTable" >
+        CREATE TABLE `${tableName}` (
+        `id` int NOT NULL AUTO_INCREMENT,
+        `amp` decimal(10,6) NOT NULL,
+        `asl` decimal(10,6) NOT NULL,
+        `energy` decimal(10,6) NOT NULL,
+        `rms` decimal(10,6) NOT NULL,
+        `rise_Time` int NOT NULL,
+        `rise_Count` int NOT NULL,
+        `ring_Count` int NOT NULL,
+        `duration` int NOT NULL,
+        `timestamp` double NOT NULL,
+        `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+    </update>
+
+    <insert id="insertInfoBatch">
+        INSERT INTO `${tableName}` (
+        `amp`,`asl`,`energy`,`rms`,`rise_Time`,`rise_Count`,`ring_Count`, `duration`,`timestamp`,`create_time`
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.amp},#{item.asl},#{item.energy},#{item.rms},#{item.riseTime},#{item.riseCount},
+            #{item.ringCount},#{item.duration}, #{item.timestamp}, #{item.createTime}
+            )
+        </foreach>
+    </insert>
+
+    <select id="queryTable" resultType="com.gov.web.domain.AeData" >
+        SELECT
+        `amp`,`asl`,`energy`,`rms`,`rise_Time`,`rise_Count`,`ring_Count`, `duration`,create_time
+        FROM ${tableName}
+        <where>
+            <if test="strTime != null  and strTime != ''">  and `create_time`  <![CDATA[ >= ]]> #{strTime}</if>
+            <if test="endTime != null  and endTime != ''">  and `create_time` <![CDATA[ <= ]]> #{endTime}</if>
+        </where>
+        order by create_time desc
+    </select>
+</mapper>
