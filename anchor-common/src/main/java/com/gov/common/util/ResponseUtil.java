@@ -2,6 +2,8 @@ package com.gov.common.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.MediaTypeFactory;
@@ -13,6 +15,7 @@ import java.net.URLEncoder;
 @Slf4j
 public class ResponseUtil {
 
+    private static final Logger log = LoggerFactory.getLogger(ResponseUtil.class);
 
 
     public static void setDownloadFileHeader(HttpServletResponse response, String fileName, Long fileSize) {

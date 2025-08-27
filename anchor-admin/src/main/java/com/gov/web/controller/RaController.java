@@ -27,7 +27,7 @@ public class RaController extends BaseController {
     public TableDataInfo getDevHistoryTable(String devSn,
                                             String strTime, String endTime) {
         if (StringUtils.isBlank(devSn)) {
-            TableDataInfo rspData = new TableDataInfo();
+            TableDataInfo rspData = new TableDataInfo(null, 0);
             rspData.setCode(HttpStatus.ERROR);
             rspData.setMsg("请传入设备编号");
             return rspData;
