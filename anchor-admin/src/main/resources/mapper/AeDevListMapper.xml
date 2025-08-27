@@ -46,7 +46,7 @@
     <select id="queryTable" resultType="com.gov.web.domain.AeData" >
         SELECT
         `amp`,`asl`,`energy`,`rms`,`rise_Time`,`rise_Count`,`ring_Count`, `duration`,create_time
-        FROM ${tableName}
+        FROM `${tableName}`
         <where>
             <if test="strTime != null  and strTime != ''">  and `create_time`  <![CDATA[ >= ]]> #{strTime}</if>
             <if test="endTime != null  and endTime != ''">  and `create_time` <![CDATA[ <= ]]> #{endTime}</if>

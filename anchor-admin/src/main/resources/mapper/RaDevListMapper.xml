@@ -32,7 +32,7 @@
     <select id="queryTable" resultType="com.gov.web.domain.RaData" >
         SELECT
         `value1`,`value2`
-        FROM ${tableName}
+        FROM `${tableName}`
         <where>
             <if test="strTime != null  and strTime != ''">  and `create_time`  <![CDATA[ >= ]]> #{strTime}</if>
             <if test="endTime != null  and endTime != ''">  and `create_time` <![CDATA[ <= ]]> #{endTime}</if>
