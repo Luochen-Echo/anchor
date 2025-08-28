@@ -216,4 +216,197 @@
         ORDER BY device_id
     </select>
 
+    <!-- RaData结果映射 -->
+    <resultMap id="RaDataResultMap" type="com.gov.web.domain.RaData">
+        <id property="id" column="id"/>
+        <result property="deviceId" column="device_id"/>
+        <result property="value1" column="value1"/>
+        <result property="value2" column="value2"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+
+    <!-- 获取RA实时数据 -->
+    <select id="getRaLatestData" resultMap="RaDataResultMap">
+        SELECT '01-1-1_a' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-1-1_a_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-1-1_a_data`)
+        UNION ALL
+        SELECT '01-1-2_a' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-1-2_a_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-1-2_a_data`)
+        UNION ALL
+        SELECT '01-1-3_a' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-1-3_a_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-1-3_a_data`)
+        UNION ALL
+        SELECT '01-1-4_a' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-1-4_a_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-1-4_a_data`)
+        UNION ALL
+        SELECT '01-1-5_a' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-1-5_a_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-1-5_a_data`)
+        UNION ALL
+        SELECT '01-1-6_a' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-1-6_a_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-1-6_a_data`)
+        UNION ALL
+        SELECT '01-1-7_a' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-1-7_a_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-1-7_a_data`)
+        UNION ALL
+        SELECT '01-1-8_a' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-1-8_a_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-1-8_a_data`)
+        UNION ALL
+        SELECT '01-1-9_a' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-1-9_a_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-1-9_a_data`)
+        UNION ALL
+        SELECT '01-2-1_a' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-2-1_a_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-2-1_a_data`)
+        UNION ALL
+        SELECT '01-2-2_a' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-2-2_a_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-2-2_a_data`)
+        UNION ALL
+        SELECT '01-2-3_a' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-2-3_a_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-2-3_a_data`)
+        UNION ALL
+        SELECT '01-2-4_a' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-2-4_a_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-2-4_a_data`)
+        UNION ALL
+        SELECT '01-2-5_a' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-2-5_a_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-2-5_a_data`)
+        UNION ALL
+        SELECT '01-2-6_a' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-2-6_a_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-2-6_a_data`)
+        UNION ALL
+        SELECT '01-2-7_a' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-2-7_a_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-2-7_a_data`)
+        UNION ALL
+        SELECT '01-2-8_a' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-2-8_a_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-2-8_a_data`)
+        UNION ALL
+        SELECT '01-2-9_a' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-2-9_a_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-2-9_a_data`)
+        UNION ALL
+        SELECT '01-5-1_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-5-1_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-5-1_c_data`)
+        UNION ALL
+        SELECT '01-5-2_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-5-2_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-5-2_c_data`)
+        UNION ALL
+        SELECT '01-5-3_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-5-3_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-5-3_c_data`)
+        UNION ALL
+        SELECT '01-5-4_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-5-4_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-5-4_c_data`)
+        UNION ALL
+        SELECT '01-5-5_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-5-5_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-5-5_c_data`)
+        UNION ALL
+        SELECT '01-5-6_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-5-6_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-5-6_c_data`)
+        UNION ALL
+        SELECT '01-5-7_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-5-7_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-5-7_c_data`)
+        UNION ALL
+        SELECT '01-5-8_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-5-8_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-5-8_c_data`)
+        UNION ALL
+        SELECT '01-5-9_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-5-9_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-5-9_c_data`)
+        UNION ALL
+        SELECT '01-6-1_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-6-1_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-6-1_c_data`)
+        UNION ALL
+        SELECT '01-6-2_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-6-2_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-6-2_c_data`)
+        UNION ALL
+        SELECT '01-6-3_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-6-3_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-6-3_c_data`)
+        UNION ALL
+        SELECT '01-6-4_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-6-4_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-6-4_c_data`)
+        UNION ALL
+        SELECT '01-6-5_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-6-5_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-6-5_c_data`)
+        UNION ALL
+        SELECT '01-6-6_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-6-6_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-6-6_c_data`)
+        UNION ALL
+        SELECT '01-6-7_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-6-7_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-6-7_c_data`)
+        UNION ALL
+        SELECT '01-6-8_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-6-8_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-6-8_c_data`)
+        UNION ALL
+        SELECT '01-6-9_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-6-9_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-6-9_c_data`)
+        UNION ALL
+        SELECT '01-7-1_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-7-1_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-7-1_c_data`)
+        UNION ALL
+        SELECT '01-7-2_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-7-2_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-7-2_c_data`)
+        UNION ALL
+        SELECT '01-7-3_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-7-3_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-7-3_c_data`)
+        UNION ALL
+        SELECT '01-7-4_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-7-4_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-7-4_c_data`)
+        UNION ALL
+        SELECT '01-7-5_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-7-5_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-7-5_c_data`)
+        UNION ALL
+        SELECT '01-7-6_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-7-6_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-7-6_c_data`)
+        UNION ALL
+        SELECT '01-7-7_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-7-7_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-7-7_c_data`)
+        UNION ALL
+        SELECT '01-7-8_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-7-8_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-7-8_c_data`)
+        UNION ALL
+        SELECT '01-7-9_c' AS device_id, id, value1, value2, create_time 
+        FROM `ra_01-7-9_c_data` 
+        WHERE create_time = (SELECT MAX(create_time) FROM `ra_01-7-9_c_data`)
+        ORDER BY device_id
+    </select>
+
 </mapper>

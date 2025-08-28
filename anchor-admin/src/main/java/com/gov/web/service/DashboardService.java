@@ -1,6 +1,7 @@
 package com.gov.web.service;
 
 import com.gov.web.domain.AeData;
+import com.gov.web.domain.RaData;
 
 import java.util.List;
 import java.util.Map;
@@ -22,4 +23,10 @@ public interface DashboardService {
      * @return 各AE设备最新的声发射参数
      */
     List<AeData> getAeLatestData();
+    
+    /**
+     * 获取RA实时数据
+     * @return 各RA设备最新的value1、value2值
+     */
+    List<RaData> getRaLatestData();
 }

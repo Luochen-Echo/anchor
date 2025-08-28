@@ -1,6 +1,7 @@
 package com.gov.web.service.impl;
 
 import com.gov.web.domain.AeData;
+import com.gov.web.domain.RaData;
 import com.gov.web.mapper.DashboardMapper;
 import com.gov.web.service.DashboardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,5 +61,10 @@ public class DashboardServiceImpl implements DashboardService {
     @Override
     public List<AeData> getAeLatestData() {
         return dashboardMapper.getAeLatestData();
+    }
+
+    @Override
+    public List<RaData> getRaLatestData() {
+        return dashboardMapper.getRaLatestData();
     }
 }

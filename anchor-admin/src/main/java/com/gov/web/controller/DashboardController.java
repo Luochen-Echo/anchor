@@ -3,6 +3,7 @@ package com.gov.web.controller;
 import com.gov.common.controller.BaseController;
 import com.gov.common.util.R;
 import com.gov.web.domain.AeData;
+import com.gov.web.domain.RaData;
 import com.gov.web.service.DashboardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,5 +42,15 @@ public class DashboardController extends BaseController {
     public R getAeLatestData() {
         List<AeData> aeLatestData = dashboardService.getAeLatestData();
         return R.ok(aeLatestData);
+    }
+
+    /**
+     * 获取RA实时数据
+     * @return 各RA设备最新的value1、value2值
+     */
+    @GetMapping("/ra/latest")
+    public R getRaLatestData() {
+        List<RaData> raLatestData = dashboardService.getRaLatestData();
+        return R.ok(raLatestData);
     }
 }

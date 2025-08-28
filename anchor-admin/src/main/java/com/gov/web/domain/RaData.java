@@ -14,6 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class RaData {
     private Long id;
+    private String deviceId;      // 设备编号
     private Date createTime;
     private Double value1;
     private Double value2;

@@ -1,6 +1,7 @@
 package com.gov.web.mapper;
 
 import com.gov.web.domain.AeData;
+import com.gov.web.domain.RaData;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -55,4 +56,10 @@ public interface DashboardMapper {
      * @return 各AE设备最新的声发射参数
      */
     List<AeData> getAeLatestData();
+    
+    /**
+     * 获取RA实时数据
+     * @return 各RA设备最新的value1、value2值
+     */
+    List<RaData> getRaLatestData();
 }
