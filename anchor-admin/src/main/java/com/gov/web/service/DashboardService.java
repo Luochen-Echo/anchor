@@ -29,4 +29,10 @@ public interface DashboardService {
      * @return 各RA设备最新的value1、value2值
      */
     List<RaData> getRaLatestData();
+    
+    /**
+     * 获取设备状态统计
+     * @return AE/RA设备数量、分布统计
+     */
+    Map<String, Object> getDevicesSummary();
 }

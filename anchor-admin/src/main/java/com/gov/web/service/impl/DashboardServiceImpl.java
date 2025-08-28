@@ -67,4 +67,37 @@ public class DashboardServiceImpl implements DashboardService {
     public List<RaData> getRaLatestData() {
         return dashboardMapper.getRaLatestData();
     }
+
+    @Override
+    public Map<String, Object> getDevicesSummary() {
+        Map<String, Object> summary = new HashMap<>();
+        
+        // 获取设备总数统计
+        Integer aeDeviceCount = dashboardMapper.getAeDeviceCount();
+        Integer raDeviceCount = dashboardMapper.getRaDeviceCount();
+        
+        // 获取RA设备类型分布
+        List<Map<String, Object>> raTypeDistribution = dashboardMapper.getRaDeviceTypeDistribution();
+        
+        // 组装设备统计数据
+        summary.put("aeDeviceCount", aeDeviceCount != null ? aeDeviceCount : 0);
+        summary.put("raDeviceCount", raDeviceCount != null ? raDeviceCount : 0);
+        summary.put("totalDeviceCount", (aeDeviceCount != null ? aeDeviceCount : 0) + (raDeviceCount != null ? raDeviceCount : 0));
+        
+        // RA设备类型分布
+        summary.put("raTypeDistribution", raTypeDistribution);
+        
+        // 设备占比统计
+        int totalCount = (aeDeviceCount != null ? aeDeviceCount : 0) + (raDeviceCount != null ? raDeviceCount : 0);
+        if (totalCount > 0) {
+            Map<String, Object> deviceRatio = new HashMap<>();
+            deviceRatio.put("aeRatio", String.format("%.1f%%", (aeDeviceCount != null ? aeDeviceCount : 0) * 100.0 / totalCount));
+            deviceRatio.put("raRatio", String.format("%.1f%%", (raDeviceCount != null ? raDeviceCount : 0) * 100.0 / totalCount));
+            summary.put("deviceRatio", deviceRatio);
+        }
+        
+        summary.put("lastUpdateTime", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        
+        return summary;
+    }
 }

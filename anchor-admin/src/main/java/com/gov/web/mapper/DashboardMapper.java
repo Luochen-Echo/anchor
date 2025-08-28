@@ -5,6 +5,7 @@ import com.gov.web.domain.RaData;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 可视化大屏数据查询Mapper
@@ -62,4 +63,10 @@ public interface DashboardMapper {
      * @return 各RA设备最新的value1、value2值
      */
     List<RaData> getRaLatestData();
+    
+    /**
+     * 获取RA设备按类型分布统计
+     * @return 设备类型分布统计
+     */
+    List<Map<String, Object>> getRaDeviceTypeDistribution();
 }

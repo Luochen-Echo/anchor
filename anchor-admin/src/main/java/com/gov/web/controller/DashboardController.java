@@ -53,4 +53,14 @@ public class DashboardController extends BaseController {
         List<RaData> raLatestData = dashboardService.getRaLatestData();
         return R.ok(raLatestData);
     }
+
+    /**
+     * 获取设备状态统计
+     * @return AE/RA设备数量、分布统计
+     */
+    @GetMapping("/devices/summary")
+    public R getDevicesSummary() {
+        Map<String, Object> devicesSummary = dashboardService.getDevicesSummary();
+        return R.ok(devicesSummary);
+    }
 }
