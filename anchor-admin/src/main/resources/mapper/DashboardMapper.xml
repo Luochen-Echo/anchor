@@ -148,4 +148,72 @@
         (SELECT COUNT(*) FROM `ra_01-7-9_c_data`) AS total_count
     </select>
 
+    <!-- AeData结果映射 -->
+    <resultMap id="AeDataResultMap" type="com.gov.web.domain.AeData">
+        <id property="id" column="id"/>
+        <result property="deviceId" column="device_id"/>
+        <result property="amp" column="amp"/>
+        <result property="asl" column="asl"/>
+        <result property="energy" column="energy"/>
+        <result property="rms" column="rms"/>
+        <result property="riseTime" column="rise_Time"/>
+        <result property="riseCount" column="rise_Count"/>
+        <result property="ringCount" column="ring_Count"/>
+        <result property="duration" column="duration"/>
+        <result property="timestamp" column="timestamp"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+
+    <!-- 获取AE实时数据 -->
+    <select id="getAeLatestData" resultMap="AeDataResultMap">
+        SELECT '001' AS device_id, id, amp, asl, energy, rms, rise_Time, rise_Count, ring_Count, duration, timestamp, create_time 
+        FROM ae_tdsk_raem1_001_data 
+        WHERE create_time = (SELECT MAX(create_time) FROM ae_tdsk_raem1_001_data)
+        UNION ALL
+        SELECT '002' AS device_id, id, amp, asl, energy, rms, rise_Time, rise_Count, ring_Count, duration, timestamp, create_time 
+        FROM ae_tdsk_raem1_002_data 
+        WHERE create_time = (SELECT MAX(create_time) FROM ae_tdsk_raem1_002_data)
+        UNION ALL
+        SELECT '003' AS device_id, id, amp, asl, energy, rms, rise_Time, rise_Count, ring_Count, duration, timestamp, create_time 
+        FROM ae_tdsk_raem1_003_data 
+        WHERE create_time = (SELECT MAX(create_time) FROM ae_tdsk_raem1_003_data)
+        UNION ALL
+        SELECT '004' AS device_id, id, amp, asl, energy, rms, rise_Time, rise_Count, ring_Count, duration, timestamp, create_time 
+        FROM ae_tdsk_raem1_004_data 
+        WHERE create_time = (SELECT MAX(create_time) FROM ae_tdsk_raem1_004_data)
+        UNION ALL
+        SELECT '005' AS device_id, id, amp, asl, energy, rms, rise_Time, rise_Count, ring_Count, duration, timestamp, create_time 
+        FROM ae_tdsk_raem1_005_data 
+        WHERE create_time = (SELECT MAX(create_time) FROM ae_tdsk_raem1_005_data)
+        UNION ALL
+        SELECT '006' AS device_id, id, amp, asl, energy, rms, rise_Time, rise_Count, ring_Count, duration, timestamp, create_time 
+        FROM ae_tdsk_raem1_006_data 
+        WHERE create_time = (SELECT MAX(create_time) FROM ae_tdsk_raem1_006_data)
+        UNION ALL
+        SELECT '007' AS device_id, id, amp, asl, energy, rms, rise_Time, rise_Count, ring_Count, duration, timestamp, create_time 
+        FROM ae_tdsk_raem1_007_data 
+        WHERE create_time = (SELECT MAX(create_time) FROM ae_tdsk_raem1_007_data)
+        UNION ALL
+        SELECT '008' AS device_id, id, amp, asl, energy, rms, rise_Time, rise_Count, ring_Count, duration, timestamp, create_time 
+        FROM ae_tdsk_raem1_008_data 
+        WHERE create_time = (SELECT MAX(create_time) FROM ae_tdsk_raem1_008_data)
+        UNION ALL
+        SELECT '009' AS device_id, id, amp, asl, energy, rms, rise_Time, rise_Count, ring_Count, duration, timestamp, create_time 
+        FROM ae_tdsk_raem1_009_data 
+        WHERE create_time = (SELECT MAX(create_time) FROM ae_tdsk_raem1_009_data)
+        UNION ALL
+        SELECT '010' AS device_id, id, amp, asl, energy, rms, rise_Time, rise_Count, ring_Count, duration, timestamp, create_time 
+        FROM ae_tdsk_raem1_010_data 
+        WHERE create_time = (SELECT MAX(create_time) FROM ae_tdsk_raem1_010_data)
+        UNION ALL
+        SELECT '011' AS device_id, id, amp, asl, energy, rms, rise_Time, rise_Count, ring_Count, duration, timestamp, create_time 
+        FROM ae_tdsk_raem1_011_data 
+        WHERE create_time = (SELECT MAX(create_time) FROM ae_tdsk_raem1_011_data)
+        UNION ALL
+        SELECT '012' AS device_id, id, amp, asl, energy, rms, rise_Time, rise_Count, ring_Count, duration, timestamp, create_time 
+        FROM ae_tdsk_raem1_012_data 
+        WHERE create_time = (SELECT MAX(create_time) FROM ae_tdsk_raem1_012_data)
+        ORDER BY device_id
+    </select>
+
 </mapper>

@@ -1,6 +1,9 @@
 package com.gov.web.mapper;
 
+import com.gov.web.domain.AeData;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * 可视化大屏数据查询Mapper
@@ -46,4 +49,10 @@ public interface DashboardMapper {
      * @return 历史RA数据总量
      */
     Long getTotalRaDataCount();
+    
+    /**
+     * 获取AE实时数据
+     * @return 各AE设备最新的声发射参数
+     */
+    List<AeData> getAeLatestData();
 }

@@ -2,12 +2,14 @@ package com.gov.web.controller;
 
 import com.gov.common.controller.BaseController;
 import com.gov.common.util.R;
+import com.gov.web.domain.AeData;
 import com.gov.web.service.DashboardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,5 +31,15 @@ public class DashboardController extends BaseController {
     public R getOverview() {
         Map<String, Object> overview = dashboardService.getSystemOverview();
         return R.ok(overview);
+    }
+
+    /**
+     * 获取AE实时数据
+     * @return 各AE设备最新的声发射参数
+     */
+    @GetMapping("/ae/latest")
+    public R getAeLatestData() {
+        List<AeData> aeLatestData = dashboardService.getAeLatestData();
+        return R.ok(aeLatestData);
     }
 }

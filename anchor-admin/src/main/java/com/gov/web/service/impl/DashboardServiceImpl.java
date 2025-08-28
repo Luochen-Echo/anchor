@@ -1,5 +1,6 @@
 package com.gov.web.service.impl;
 
+import com.gov.web.domain.AeData;
 import com.gov.web.mapper.DashboardMapper;
 import com.gov.web.service.DashboardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -53,5 +55,10 @@ public class DashboardServiceImpl implements DashboardService {
         overview.put("lastUpdateTime", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         
         return overview;
+    }
+
+    @Override
+    public List<AeData> getAeLatestData() {
+        return dashboardMapper.getAeLatestData();
     }
 }
