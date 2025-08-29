@@ -58,6 +58,10 @@ public class AeDevListServiceImpl extends ServiceImpl<AeDevListMapper, AeDevList
         }
         String tableName=String.format(DevConstants.AE_TABLE_NAME, devSn);
         List<AeData> devHistories = baseMapper.queryTable( tableName,  strTime,  endTime);
+        
+        // 设置 deviceId 值
+        devHistories.forEach(data -> data.setDeviceId(devSn));
+        
         return devHistories;
     }
 }
