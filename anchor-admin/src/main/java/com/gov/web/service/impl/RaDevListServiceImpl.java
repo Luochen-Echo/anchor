@@ -59,6 +59,10 @@ public class RaDevListServiceImpl extends ServiceImpl<RaDevListMapper, RaDevList
 
         String tableName=String.format(DevConstants.RA_TABLE_NAME, devSn,RaEnum.fromValue(r.getType()));
         List<RaData> devHistories = baseMapper.queryTable( tableName,  strTime,  endTime);
+        
+        // 设置 deviceId 值
+        devHistories.forEach(data -> data.setDeviceId(devSn));
+        
         return devHistories;
     }
 

@@ -31,7 +31,7 @@
 
     <select id="queryTable" resultType="com.gov.web.domain.RaData" >
         SELECT
-        `value1`,`value2`
+        `id`,`value1`,`value2`,`create_time` as createTime
         FROM `${tableName}`
         <where>
             <if test="strTime != null  and strTime != ''">  and `create_time`  <![CDATA[ >= ]]> #{strTime}</if>
