@@ -6,6 +6,7 @@ import com.gov.common.page.TableDataInfo;
 import com.gov.common.util.R;
 import com.gov.web.domain.AeData;
 import com.gov.web.domain.RaData;
+import com.gov.web.domain.RaDevList;
 import com.gov.web.service.AeDevListService;
 import com.gov.web.service.RaDevListService;
 import org.apache.commons.lang3.StringUtils;
@@ -40,5 +41,11 @@ public class RaController extends BaseController {
     public R test(){
         raDevListService.batchRemoveDuplicates();
         return R.ok();
+    }
+
+    @GetMapping(value = "/getDevList")
+    public R getDevList() {
+        List<RaDevList> list = raDevListService.list();
+        return R.ok(list);
     }
 }
