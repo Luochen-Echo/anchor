@@ -15,7 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class RaData {
     private Long id;
-    private String deviceId;      // 设备编号
+    private String deviceId;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
     private Double value1;

@@ -6,6 +6,10 @@ import com.gov.web.domain.RaData;
 import com.gov.web.domain.RaDevList;
 
 import java.util.List;
+/**
+ *
+ * @author luochen
+ */
 
 public interface RaDevListService extends IService<RaDevList> {
     RaDevList checkDeviceExist(String deviceId);

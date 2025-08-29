@@ -5,8 +5,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.gov.common.constant.DevConstants;
 import com.gov.common.util.RaEnum;
 import com.gov.core.exception.BusinessException;
-import com.gov.web.domain.AeData;
-import com.gov.web.domain.AeDevList;
 import com.gov.web.domain.RaData;
 import com.gov.web.domain.RaDevList;
 import com.gov.web.mapper.RaDevListMapper;

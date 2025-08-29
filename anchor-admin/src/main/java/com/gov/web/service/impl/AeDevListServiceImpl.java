@@ -17,10 +17,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
-* @author 28440
-* @description 针对表【ae_dev_list】的数据库操作Service实现
-* @createDate 2025-04-07 17:06:31
-*/
+ *
+ * @author luochen
+ */
+
 @Service
 @Transactional(readOnly = true)
 public class AeDevListServiceImpl extends ServiceImpl<AeDevListMapper, AeDevList>
